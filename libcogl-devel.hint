@@ -1,0 +1,8 @@
+category: X11
+requires: libcogl5 libcairo-devel libgdk_pixbuf2.0-devel libglib2.0-devel libpango1.0-devel libX11-devel libXdamage-devel libXext-devel libXfixes-devel
+external-source: cogl
+sdesc: "GObject OpenGL library (development)"
+ldesc: "Cogl is a small open source library for using 3D graphics 
+hardware for rendering. The API departs from the flat state machine 
+style of OpenGL and is designed to make it easy to write orthogonal 
+components that can render without stepping on each others toes."

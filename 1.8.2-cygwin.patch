@@ -1,0 +1,13 @@
+Used later to assume WGL :-(
+
+--- origsrc/cogl-1.8.2/configure.ac	2011-10-17 09:03:54.000000000 -0500
++++ src/cogl-1.8.2/configure.ac	2011-11-16 23:50:09.600837100 -0600
+@@ -148,7 +148,7 @@ dnl ====================================
+ AC_CANONICAL_HOST
+ AC_MSG_CHECKING([if building for some Win32 platform])
+ AS_CASE([$host],
+-        [*-*-mingw*|*-*-cygwin*],
++        [*-*-mingw*],
+         [
+           COGL_EXTRA_LDFLAGS="$COGL_EXTRA_LDFLAGS -no-undefined"
+           platform_win32=yes
