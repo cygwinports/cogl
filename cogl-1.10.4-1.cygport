@@ -1,0 +1,43 @@
+inherit gnome2
+
+CATEGORY="X11"
+SUMMARY="GObject OpenGL library"
+DESCRIPTION="Cogl is a small open source library for using 3D graphics
+hardware for rendering. The API departs from the flat state machine
+style of OpenGL and is designed to make it easy to write orthogonal
+components that can render without stepping on each others toes."
+HOMEPAGE="http://clutter-project.org/"
+
+PATCH_URI="1.8.2-cygwin.patch
+	   1.8.2-soversion.patch
+           1.10.4-pkgconfig.patch"
+
+PKG_NAMES="libcogl9 libcogl-common libcogl-devel girepository-Cogl1.0"
+libcogl9_SUMMARY="${SUMMARY} (runtime)"
+libcogl9_REQUIRES="libcogl-common libGL1"
+libcogl9_CONTENTS="usr/bin/*-9.dll"
+libcogl_common_SUMMARY="${SUMMARY} (data)"
+libcogl_common_CONTENTS="usr/share/doc/ usr/share/locale/"
+libcogl_devel_SUMMARY="${SUMMARY} (development)"
+libcogl_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
+girepository_Cogl1_0_SUMMARY="${SUMMARY} (GObject Introspection)"
+girepository_Cogl1_0_CONTENTS="usr/*/gir*/Cogl*-1.0.*"
+
+DIFF_EXCLUDES="README"
+
+CYGCONF_ARGS="
+	--enable-cogl-pango
+	--enable-gdk-pixbuf
+	--enable-gl
+	--disable-gles1
+	--disable-gles2
+	--enable-glx
+	--disable-wgl
+	--disable-xlib-egl-platform
+	--with-gl-libname=cygGL-1.dll
+	--with-gles1-libname=cygGLESv1_CM-1.dll
+	--with-gles2-libname=cygGLESv2-2.dll
+	COGL_EXTRA_LDFLAGS=-no-undefined
+"
+
+KEEP_LA_FILES="none"
