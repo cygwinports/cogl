@@ -1,9 +1,9 @@
 inherit gnome2
 
 NAME="cogl"
-VERSION=1.12.2
+VERSION=1.14.0
 RELEASE=1
-CATEGORY="X11"
+CATEGORY="Libs"
 SUMMARY="GObject OpenGL library"
 DESCRIPTION="Cogl is a small open source library for using 3D graphics
 hardware for rendering. The API departs from the flat state machine
@@ -12,14 +12,13 @@ components that can render without stepping on each others toes."
 HOMEPAGE="http://clutter-project.org/"
 
 PATCH_URI="1.8.2-cygwin.patch
-	   1.8.2-soversion.patch
            1.10.4-pkgconfig.patch
 "
 
-PKG_NAMES="libcogl11 libcogl-common libcogl-devel girepository-Cogl1.0"
-libcogl11_SUMMARY="${SUMMARY} (runtime)"
-libcogl11_REQUIRES="libcogl-common libGL1"
-libcogl11_CONTENTS="usr/bin/*-11.dll"
+PKG_NAMES="libcogl12 libcogl-common libcogl-devel girepository-Cogl1.0"
+libcogl12_SUMMARY="${SUMMARY} (runtime)"
+libcogl12_REQUIRES="libcogl-common libGL1"
+libcogl12_CONTENTS="usr/bin/*-12.dll"
 libcogl_common_SUMMARY="${SUMMARY} (data)"
 libcogl_common_CONTENTS="usr/share/doc/ usr/share/locale/"
 libcogl_devel_SUMMARY="${SUMMARY} (development)"
@@ -39,7 +38,5 @@ CYGCONF_ARGS="
 	--disable-wgl
 	--disable-xlib-egl-platform
 	--with-gl-libname=cygGL-1.dll
-	--with-gles1-libname=cygGLESv1_CM-1.dll
-	--with-gles2-libname=cygGLESv2-2.dll
 	COGL_EXTRA_LDFLAGS=-no-undefined
 "
