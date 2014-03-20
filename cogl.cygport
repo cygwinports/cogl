@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="cogl"
-VERSION=1.14.0
+VERSION=1.16.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GObject OpenGL library"
@@ -15,14 +15,17 @@ PATCH_URI="1.8.2-cygwin.patch
            1.10.4-pkgconfig.patch
 "
 
-PKG_NAMES="libcogl12 libcogl-common libcogl-devel girepository-Cogl1.0"
-libcogl12_SUMMARY="${SUMMARY} (runtime)"
-libcogl12_REQUIRES="libcogl-common libGL1"
-libcogl12_CONTENTS="usr/bin/*-12.dll"
+PKG_NAMES="libcogl15 libcogl-common libcogl-devel libcogl-doc girepository-Cogl1.0"
+libcogl15_SUMMARY="${SUMMARY} (runtime)"
+libcogl15_REQUIRES="libcogl-common libGL1"
+libcogl15_CONTENTS="usr/bin/*-15.dll"
 libcogl_common_SUMMARY="${SUMMARY} (data)"
 libcogl_common_CONTENTS="usr/share/doc/ usr/share/locale/"
 libcogl_devel_SUMMARY="${SUMMARY} (development)"
-libcogl_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
+libcogl_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+libcogl_doc_CATEGORY="Doc"
+libcogl_doc_SUMMARY="${SUMMARY} (development)"
+libcogl_doc_CONTENTS="usr/share/gtk-doc/"
 girepository_Cogl1_0_SUMMARY="${SUMMARY} (GObject Introspection)"
 girepository_Cogl1_0_CONTENTS="usr/*/gir*/Cogl*-1.0.*"
 
