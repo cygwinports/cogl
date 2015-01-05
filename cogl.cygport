@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="cogl"
-VERSION=1.16.2
+VERSION=1.18.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GObject OpenGL library"
@@ -11,14 +11,15 @@ style of OpenGL and is designed to make it easy to write orthogonal
 components that can render without stepping on each others toes."
 HOMEPAGE="http://clutter-project.org/"
 
-PATCH_URI="1.8.2-cygwin.patch
-           1.10.4-pkgconfig.patch
+PATCH_URI="
+	1.8.2-cygwin.patch
+	1.18.2-pkgconfig.patch
 "
 
-PKG_NAMES="libcogl15 libcogl-common libcogl-devel libcogl-doc girepository-Cogl1.0"
-libcogl15_SUMMARY="${SUMMARY} (runtime)"
-libcogl15_REQUIRES="libcogl-common libGL1"
-libcogl15_CONTENTS="usr/bin/*-15.dll"
+PKG_NAMES="libcogl20 libcogl-common libcogl-devel libcogl-doc girepository-Cogl1.0 girepository-Cogl2.0"
+libcogl20_SUMMARY="${SUMMARY} (runtime)"
+libcogl20_REQUIRES="libcogl-common libGL1"
+libcogl20_CONTENTS="usr/bin/*-20.dll"
 libcogl_common_SUMMARY="${SUMMARY} (data)"
 libcogl_common_CONTENTS="usr/share/doc/ usr/share/locale/"
 libcogl_devel_SUMMARY="${SUMMARY} (development)"
@@ -28,10 +29,13 @@ libcogl_doc_SUMMARY="${SUMMARY} (development)"
 libcogl_doc_CONTENTS="usr/share/gtk-doc/"
 girepository_Cogl1_0_SUMMARY="${SUMMARY} (GObject Introspection)"
 girepository_Cogl1_0_CONTENTS="usr/*/gir*/Cogl*-1.0.*"
+girepository_Cogl2_0_SUMMARY="${SUMMARY} (GObject Introspection)"
+girepository_Cogl2_0_CONTENTS="usr/*/gir*/Cogl*-2.0.*"
 
 DIFF_EXCLUDES="README"
 
 CYGCONF_ARGS="
+	--enable-cairo
 	--enable-cogl-pango
 	--enable-gdk-pixbuf
 	--enable-gl
@@ -39,7 +43,7 @@ CYGCONF_ARGS="
 	--disable-gles2
 	--enable-glx
 	--disable-wgl
-	--disable-xlib-egl-platform
+	--enable-xlib-egl-platform
 	--with-gl-libname=cygGL-1.dll
 	COGL_EXTRA_LDFLAGS=-no-undefined
 "
