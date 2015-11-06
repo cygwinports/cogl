@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="cogl"
-VERSION=1.18.2
+VERSION=1.22.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GObject OpenGL library"
@@ -23,6 +23,7 @@ libcogl20_CONTENTS="usr/bin/*-20.dll"
 libcogl_common_SUMMARY="${SUMMARY} (data)"
 libcogl_common_CONTENTS="usr/share/doc/ usr/share/locale/"
 libcogl_devel_SUMMARY="${SUMMARY} (development)"
+libcogl_devel_REQUIRES="girepository-Cogl1.0 girepository-Cogl2.0"
 libcogl_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
 libcogl_doc_CATEGORY="Doc"
 libcogl_doc_SUMMARY="${SUMMARY} (development)"
