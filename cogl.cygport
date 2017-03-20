@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="cogl"
-VERSION=1.22.0
+VERSION=1.22.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GObject OpenGL library"
@@ -14,6 +14,7 @@ HOMEPAGE="http://clutter-project.org/"
 PATCH_URI="
 	1.8.2-cygwin.patch
 	1.18.2-pkgconfig.patch
+	1.22.2-Werror-undef.patch
 "
 
 PKG_NAMES="libcogl20 libcogl-common libcogl-devel libcogl-doc girepository-Cogl1.0 girepository-Cogl2.0"
